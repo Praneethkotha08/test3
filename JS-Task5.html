@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task5</title>
+</head>
+
+<body>
+    <center>
+        <form onsubmit=" return validate()" action="index.html">
+            <table style="margin-top: 100px;">
+              <tr>
+              <td><label for="name" style="font-size:20px">Name:</label></td>
+              <td> <input id="name" type="text" size="25" style="height:20px;"></td>
+               <td> <span id="msg1"></span><br><br></td>
+        </tr>
+         <tr>
+               <td><label for="email" style="font-size:20px">Email:</label></td>
+              <td> <input id="email" type="text" size="25" style="height:20px;"></td>
+               <td><span id="msg2"></span><br><br></td>
+          </tr>
+              <tr> 
+                <td><label for="url" style="font-size:20px">Website:</label></td>
+               <td> <input id="url" type="text" size="25" style="height:20px;"></td>
+                <td><span id="msg3"></span><br><br></td>
+            </tr>
+            <tr>
+              <td><label for="msg" style="font-size:20px;">Message:</label></td>
+               <td> <textarea id="msg" rows="5" cols="25" ></textarea></td>
+              <td><span id="msg4"></span><br><br></td>
+            </tr>
+            <tr>
+                <td></td>
+               <td><button type="submit" style="margin-left:-15%; padding-left:10px; padding-right: 10px;">Submit</button></td>
+        </tr>
+            </table>
+        </form>
+    </center>
+    <script>
+        function validate() {
+            var Name = document.getElementById("name");
+            var Email = document.getElementById("email");
+            var Url = document.getElementById("url");
+            var Msg = document.getElementById("msg");
+
+            var NameValue = Name.value;
+            var EmailValue = Email.value;
+            var UrlValue = Url.value;
+            var MsgValue = Msg.value;
+
+            var count=0;
+           
+            if (NameValue.length === 0) {
+                document.getElementById("msg1").innerText = "This field is required";
+                document.getElementById("msg1").style.color = "red";
+                Name.style.borderColor = "rgb(249, 100, 100)";
+                count++;
+                
+            }
+            else {
+                Name.style.borderColor = ""; 
+                document.getElementById("msg1").innerText = "";
+
+            }
+            var reg1=/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+          
+            if (!EmailValue.match(reg1)) {
+                document.getElementById("msg2").innerText = "A valid email address is required";
+                document.getElementById("msg2").style.color = "red";
+                Email.style.borderColor = "rgb(249, 100, 100)";
+                count++;
+            } else {
+                Email.style.borderColor = ""; 
+                document.getElementById("msg2").innerText = "";
+
+            }
+            var reg2=/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+            if (!UrlValue.match(reg2)) {
+                document.getElementById("msg3").innerText = "A valid url is equired";
+                document.getElementById("msg3").style.color = "red";
+                Url.style.borderColor = "rgb(249, 100, 100)";
+                count++;
+            } else {
+                Url.style.borderColor = ""; 
+                document.getElementById("msg3").innerText = "";
+
+            }
+            if (MsgValue.length === 0) {
+                document.getElementById("msg4").innerText = "This field is required";
+                document.getElementById("msg4").style.color = "red";
+                Msg.style.borderColor = "red";
+                count++;
+                
+            }
+            else {
+                Msg.style.borderColor = ""; 
+                document.getElementById("msg4").innerText = "";
+
+            }
+           if(count==0){
+
+           return true;
+           }
+           return false;
+        } 
+    </script>
+</body>
+</html>

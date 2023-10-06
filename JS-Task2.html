@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>Task2</title>
+</head>
+<body>
+    <script>
+        function reorder()
+  {
+    var word=document.getElementById("word").value;
+    document.getElementById("answer").innerText=word.split('').sort().join('');
+  }
+
+    </script>
+    <form>
+        Enter a String:<input type="text" name="word" id="word"><br><br>
+        <input type="button" onclick="reorder()" value="Reorder">
+    </form>
+    <p id="answer"></p>
+</body>
+</html>

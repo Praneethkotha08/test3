@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Task4</title>
+</head>
+<body>
+    <script>
+        function date(){
+        var d=new Date();
+        var date=d.getDate();
+        var month=d.getMonth();
+        var year=d.getFullYear();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        document.getElementById("date").innerHTML=date+"/"+months[month]+"/"+year;
+    }
+        function time(){
+        const d =new Date();
+        var answer=d;
+        document.getElementById("time").innerHTML=d;
+        }
+        
+    </script>
+    <input type="button" value="Show Date" onclick="date()">
+    <p id="date"></p>
+    <input type="button" value="Show Time" onclick="time()">
+    <p id="time"></p>
+</body>
+</html>
